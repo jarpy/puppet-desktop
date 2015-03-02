@@ -1,0 +1,3 @@
+[submodule "modules-github/python"]
+	path = modules-github/python
+	url = https://github.com/stankevich/puppet-python.git
