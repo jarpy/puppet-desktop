@@ -1,3 +1,7 @@
+require python
+python::pip { 'boto': }
+python::pip { 'ipaddr': }
+
 package { 'apparmor': }
 package { 'alsamixergui': }
 package { 'awesome': }
@@ -30,8 +34,6 @@ package { 'nmap': }
 package { 'pdftk': }
 package { 'pidgin': }
 package { 'pry': }
-package { 'python-pip': }
-package { 'python-netaddr': }
 package { 'pwgen': }
 package { 'rake': }
 package { 'rpm': }
@@ -48,7 +50,6 @@ package { 'xfce4-terminal': }
 package { 'xscreensaver': }
 package { 'xscreensaver-gl': }
 package { 'xscreensaver-gl-extra': }
-Package { ensure => latest }
 
 # ATI driver dependencies
 #package { 'dh-modaliases': }
@@ -74,7 +75,9 @@ file { '/usr/share/xsessions/Xsession.desktop':
 }
 
 file { '/etc/ssh/ssh_config':
-  source => '/home/toby/dotfiles/desktop.puppet/templates/ssh_config',
-  owner  => 'root',
-  group  => 'root',
+  content => template('ssh/ssh_config.erb'),
+  owner   => 'root',
+  group   => 'root',
 }
+
+Package { ensure => latest }
