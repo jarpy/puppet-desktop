@@ -36,10 +36,14 @@ package { 'pidgin': }
 package { 'pry': }
 package { 'pwgen': }
 package { 'rake': }
+package { 'remmina': }
+package { 'remmina-plugin-rdp': }
+package { 'remmina-plugin-vnc': }
 package { 'rpm': }
 package { 'wireshark': }
 package { 'openssh-server': }
 package { 'sshfs': }
+package { 'rdesktop': }
 package { 'tmux': }
 package { 'ttf-bitstream-vera': }
 package { 'vim': }
