@@ -1,5 +1,6 @@
 require python
 python::pip { 'boto': }
+python::pip { 'flake8': }
 python::pip { 'ipaddr': }
 
 package { 'apparmor': }
