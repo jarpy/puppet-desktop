@@ -45,7 +45,6 @@ package { 'wireshark': }
 package { 'openssh-server': }
 package { 'sshfs': }
 package { 'rdesktop': }
-package { 'tmux': }
 package { 'ttf-bitstream-vera': }
 package { 'vim': }
 package { 'vim-gnome': }
@@ -84,5 +83,7 @@ file { '/etc/ssh/ssh_config':
   owner   => 'root',
   group   => 'root',
 }
+
+include tmux
 
 Package { ensure => latest }
