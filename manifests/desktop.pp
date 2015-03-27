@@ -1,59 +1,69 @@
 require python
-python::pip { 'boto': }
-python::pip { 'flake8': }
-python::pip { 'ipaddr': }
+include tmux
 
-package { 'apparmor': }
-package { 'alsamixergui': }
-package { 'awesome': }
-package { 'awesome-extra': }
-package { 'build-essential': }
-package { 'dconf-editor': }
-package { 'docker.io': }
-package { 'gconf-editor': }
-package { 'git': }
-package { 'graphviz': }
-package { 'gnome-control-center': }
-package { 'gnome-devel': }
-package { 'gnome-session-fallback': }
-package { 'gpointing-device-settings': }
-package { 'imagemagick': }
-package { 'ipython': }
-package { 'ipython-notebook': }
-package { 'klipper': }
-package { 'libappindicator1': }
-package { 'libevent-dev': }
-package { 'libgif-dev': }
-package { 'libgtk-3-dev': }
-package { 'libjpeg-dev': }
-package { 'libtiff5-dev': }
-package { 'libxpm-dev': }
-package { 'lynx': }
-package { 'libncurses5-dev': }
-package { 'notification-daemon': }
-package { 'nmap': }
-package { 'pdftk': }
-package { 'pidgin': }
-package { 'pry': }
-package { 'pwgen': }
-package { 'rake': }
-package { 'remmina': }
-package { 'remmina-plugin-rdp': }
-package { 'remmina-plugin-vnc': }
-package { 'rpm': }
-package { 'wireshark': }
-package { 'openssh-server': }
-package { 'sshfs': }
-package { 'rdesktop': }
-package { 'ttf-bitstream-vera': }
-package { 'vim': }
-package { 'vim-gnome': }
-package { 'x11vnc': }
-package { 'xfce4-settings': }
-package { 'xfce4-terminal': }
-package { 'xscreensaver': }
-package { 'xscreensaver-gl': }
-package { 'xscreensaver-gl-extra': }
+$python_packages = [
+  'boto',
+  'flake8',
+  'ipaddr',
+]
+python::pip { $python_packages: }
+
+$packages = [
+  'apparmor',
+  'alsamixergui',
+  'automake',
+  'awesome',
+  'awesome-extra',
+  'build-essential',
+  'dconf-editor',
+  'docker.io',
+  'gconf-editor',
+  'git',
+  'graphviz',
+  'gnome-control-center',
+  'gnome-devel',
+  'gnome-session-fallback',
+  'gpointing-device-settings',
+  'imagemagick',
+  'ipython',
+  'ipython-notebook',
+  'klipper',
+  'libappindicator1',
+  'libevent-dev',
+  'libgif-dev',
+  'libgtk-3-dev',
+  'libjpeg-dev',
+  'libtiff5-dev',
+  'libxpm-dev',
+  'lynx',
+  'libncurses5-dev',
+  'notification-daemon',
+  'nmap',
+  'pdftk',
+  'pidgin',
+  'pry',
+  'pwgen',
+  'rake',
+  'remmina',
+  'remmina-plugin-rdp',
+  'remmina-plugin-vnc',
+  'rpm',
+  'wireshark',
+  'openssh-server',
+  'sshfs',
+  'rdesktop',
+  'texinfo',
+  'ttf-bitstream-vera',
+  'vim',
+  'vim-gnome',
+  'x11vnc',
+  'xfce4-settings',
+  'xfce4-terminal',
+  'xscreensaver',
+  'xscreensaver-gl',
+  'xscreensaver-gl-extra',
+]
+package { $packages: }
 
 # ATI driver dependencies
 #package { 'dh-modaliases': }
@@ -84,6 +94,11 @@ file { '/etc/ssh/ssh_config':
   group   => 'root',
 }
 
-include tmux
+file { "${::home}/src":
+  ensure => directory,
+  owner  => $::user,
+  group  => $::user,
+}
+
 
 Package { ensure => latest }
