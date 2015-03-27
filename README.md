@@ -1,6 +1,7 @@
-My desktop environment. Tested on Linux Mint 17.
+My desktop environment, implemented with Puppet.
+Tested on Linux Mint 17; probably works on Ubuntu 14.04.
 
-Bootstrap a fresh Mint install with:
+Bootstrap a freshly built system with:
 
 ```bash
 sudo aptitude install --assume-yes git puppet rake
