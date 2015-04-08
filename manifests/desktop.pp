@@ -27,7 +27,7 @@ $packages = [
   'imagemagick',
   'ipython',
   'ipython-notebook',
-  'ircii',
+  'irssi',
   'klipper',
   'libappindicator1',
   'libevent-dev',
