@@ -1,4 +1,6 @@
 require python
+
+include keysnail
 include tmux
 
 $python_packages = [
