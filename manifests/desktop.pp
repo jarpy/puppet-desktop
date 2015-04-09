@@ -106,11 +106,11 @@ file { '/etc/ssh/ssh_config':
   group   => 'root',
 }
 
-file { "${::home}/src":
-  ensure => directory,
-  owner  => $::user,
-  group  => $::user,
+file { "${::home}/src": ensure => directory }
+
+
+File {
+  owner => $::user,
+  group => $::user,
 }
-
-
 Package { ensure => latest }
