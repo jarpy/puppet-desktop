@@ -1,0 +1,142 @@
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+# Don't put duplicate lines or lines starting with space in the history.
+HISTCONTROL=ignoreboth
+HISTSIZE=10000
+HISTFILESIZE=200000
+
+# Append to the history file, don't overwrite it.
+shopt -s histappend
+
+# Check the window size after each command and, if necessary, update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# Make "less" more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# Enable color support of ls and also add handy aliases
+[[ $COLORTERM == 'gnome-terminal' ]] && export TERM=xterm-256color
+[[ $COLORTERM == 'Terminal' ]] && export TERM=xterm-256color
+[[ $COLORTERM == 'xfce4-terminal' ]] && export TERM=xterm-256color
+if [ -x /usr/bin/dircolors ]; then
+    eval `/usr/bin/dircolors $HOME/dotfiles/dircolors.256dark`
+    alias ls='ls --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# Some more ls aliases
+alias ll='ls -alF'
+alias lt='ls -alFtr'
+alias la='ls -A'
+alias l='ls -CF'
+alias lg='ls -alF | grep'
+alias cd=monkey_patch_cd_to_pushd
+alias po='popd >/dev/null'
+
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
+
+# Push some dirs onto the PATH if they're not there already.
+for d in $HOME/bin /usr/local/bin /usr/local/sbin /usr/sbin /sbin /usr/local/cuda-6.5/bin; do
+  [[ -d $dir ]] && [[ $PATH =~ $d ]] || export PATH=$d:$PATH
+done
+for d in /usr/local/cuda-6.5/lib64; do
+  [[ -d $dir ]] && [[ $LD_LIBRARY_PATH =~ $d ]] || export LD_LIBRARY_PATH=$d:$LD_LIBRARY_PATH
+done
+
+# Let tmux spawn X11 apps on the local display.
+if [[ -n $TMUX ]]; then
+  export DISPLAY=:0
+fi
+
+if [[ -n $DISPLAY ]]; then
+  export EDITOR='emacsclient -c --no-wait'
+else
+  export EDITOR='emacsclient -t'
+fi
+export VISUAL=$EDITOR
+export ALTERNATE_EDITOR=''
+alias ec=$EDITOR
+alias e=$EDITOR
+
+export AWS_DEFAULT_REGION=ap-southeast-2
+export EC2_HOME=~/aws/ec2
+export JAVA_HOME=/usr/lib/jvm/java-6-openjdk-amd64/jre
+
+if [ -f ~/bin/git-completion.bash ]; then
+  . ~/bin/git-completion.bash
+fi
+
+export WHT="\e[0;37m"
+export WHTBLD="\e[1;37m"
+export RED="\e[0;31m"
+export PURPLE="\e[38;5;125m"
+export PURPLEBLD="\e[38;5;61m"
+export BLKBLD="\e[38;5;240m"
+export YLW="\e[38;5;136m"
+export PS1="\n${BLKBLD}\u@\h ${solr_violet} ${BLKBLD}$(dirs)${BLKBLD}\n$ "
+
+export solr_base03="\e[38;5;234m"
+export solr_base02="\e[38;5;235m"
+export solr_base01="\e[38;5;240m"
+export solr_base00="\e[38;5;241m"
+export solr_base0="\e[38;5;244m"
+export solr_base1="\e[38;5;245m"
+export solr_base2="\e[38;5;254m"
+export solr_base3="\e[38;5;230m"
+export solr_yellow="\e[38;5;136m"
+export solr_orange="\e[38;5;166m"
+export solr_red="\e[38;5;160m"
+export solr_magenta="\e[38;5;125m"
+export solr_violet="\e[38;5;61m"
+export solr_blue="\e[38;5;33m"
+export solr_cyan="\e[38;5;37m"
+export solr_green="\e[38;5;64m"
+
+issue=$(cat /etc/issue)
+if [[ $issue =~ "Ubuntu" ]]; then
+  export host_color=$solr_magenta
+elif [[ $issue =~ "Mint" ]]; then
+  export host_color=$solr_green
+else
+  export host_color=$solr_orange
+fi
+
+print_dir_stack() {
+  stack_depth=$(dirs -p | wc -l)
+  if [[ $stack_depth -gt 1 ]]; then
+   stack_depth=$(($stack_depth > 5 ? 5:$stack_depth))
+   for x in `seq 1 $(($stack_depth - 1))`; do
+     dirs +$x 2>/dev/null | tr '\n' ' '
+   done
+   if [[ $stack_depth -eq 5 ]]; then
+     echo -n "..."
+   fi
+  fi
+}
+
+if [ -f ~/bin/git-prompt.sh ]; then
+  . ~/bin/git-prompt.sh
+  export GIT_PS1_SHOWCOLORHINTS=true
+  export GIT_PS1_SHOWDIRTYSTATE=true
+  export GIT_PS1_SHOWSTASHSTATE=true
+  export GIT_PS1_SHOWUNTRACKEDFILES=true
+  export GIT_PS1_SHOWUPSTREAM="auto"
+  export PROMPT_COMMAND='__git_ps1 "\n${solr_base01}\u@${host_color}\h${solr_base0}${PURPLE}${WHTBLD}" " ${solr_yellow}\w${solr_base01} [ $(print_dir_stack)]  ${solr_base1}\n$ "'
+else
+  export PS1='$ '
+  export PROMPT_COMMAND='echo -ne "\n${solr_base01}${USER}@${host_color}${HOSTNAME}${solr_base01} ${solr_yellow}${PWD}${solr_base0} [ $(print_dir_stack)] \n${solr_base1}"'
+fi
+
+monkey_patch_cd_to_pushd() {
+  if [[ -z $@ ]]; then
+    target=$HOME
+  else
+    target=$@
+  fi
+  pushd $target > /dev/null
+}

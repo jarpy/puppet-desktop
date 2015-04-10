@@ -1,5 +1,6 @@
 require python
 
+include bash
 include keysnail
 include tmux
 
