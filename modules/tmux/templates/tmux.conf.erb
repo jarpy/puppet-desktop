@@ -56,3 +56,6 @@ set-option -g display-panes-colour colour166 #orange
 set-window-option -g clock-mode-colour colour64 #green
 set-option -g status-right ''
 bind C-w run "tmux save-buffer - | xclip -i"
+
+# https://stackoverflow.com/questions/21378569/how-to-auto-update-ssh-agent-environment-variables-when-attaching-to-existing-tm/23187030#23187030
+setenv -g SSH_AUTH_SOCK $HOME/.ssh/ssh_auth_sock
