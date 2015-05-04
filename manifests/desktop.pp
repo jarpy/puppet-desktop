@@ -36,6 +36,7 @@ $packages = [
   'gnome-control-center',
   'gnome-devel',
   'gnome-session-fallback',
+  'gnuradio',
   'gpointing-device-settings',
   'graphviz',
   'imagemagick',
