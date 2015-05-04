@@ -58,6 +58,7 @@ $packages = [
   'nmap',
   'nodejs',
   'notification-daemon',
+  'ntp',
   'openssh-server',
   'openvpn',
   'pavucontrol',
