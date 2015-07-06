@@ -5,6 +5,7 @@ include keysnail
 include tmux
 
 $python_packages = [
+  'awscli',
   'boto',
   'flake8',
   'ipaddr',
