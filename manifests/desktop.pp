@@ -14,10 +14,14 @@ python::pip { $python_packages: }
 
 
 $rubygems = [
+  'cucumber',
   'puppet-lint',
   'rspec',
 ]
-package { $rubygems: provider => 'gem' }
+package { $rubygems:
+  provider => 'gem',
+  require  => Package['ruby-dev']
+}
 
 
 $packages = [
@@ -74,6 +78,7 @@ $packages = [
   'remmina-plugin-rdp',
   'remmina-plugin-vnc',
   'rpm',
+  'ruby-dev',
   'simulavr',
   'sshfs',
   'texinfo',
