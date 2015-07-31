@@ -27,6 +27,7 @@ package { $rubygems:
 $packages = [
   'alsamixergui',
   'apparmor',
+  'augeas-tools',
   'automake',
   'avrdude',
   'avr-libc',
@@ -62,6 +63,7 @@ $packages = [
   'lynx',
   'lyx',
   'mono-complete',
+  'ncurses-term',
   'nmap',
   'nodejs',
   'notification-daemon',
