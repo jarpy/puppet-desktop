@@ -3,6 +3,7 @@ require python
 include bash
 include keysnail
 include tmux
+include x11::session
 
 $python_packages = [
   'awscli',
@@ -23,33 +24,22 @@ package { $rubygems:
   require  => Package['ruby-dev']
 }
 
-
 $packages = [
-  'alsamixergui',
   'apparmor',
   'augeas-tools',
   'automake',
   'avrdude',
   'avr-libc',
-  'awesome',
-  'awesome-extra',
   'build-essential',
-  'dconf-editor',
   'gcc-avr',
-  'gconf-editor',
   'docker.io',
   'git',
-  'gnome-control-center',
-  'gnome-devel',
-  'gnome-session-fallback',
   'gnuradio',
-  'gpointing-device-settings',
   'graphviz',
   'imagemagick',
   'ipython',
   'ipython-notebook',
   'irssi',
-  'klipper',
   'latex-xcolor',
   'libappindicator1',
   'libcurl4-openssl-dev',
@@ -70,7 +60,6 @@ $packages = [
   'ntp',
   'openssh-server',
   'openvpn',
-  'pavucontrol',
   'pdftk',
   'pidgin',
   'pry',
@@ -96,11 +85,6 @@ $packages = [
   'vim-gnome',
   'wireshark',
   'x11vnc',
-  'xfce4-settings',
-  'xfce4-terminal',
-  'xscreensaver',
-  'xscreensaver-gl',
-  'xscreensaver-gl-extra',
 ]
 package { $packages: }
 
