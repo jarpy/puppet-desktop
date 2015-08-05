@@ -104,7 +104,6 @@ $packages = [
 ]
 package { $packages: }
 
-
 $ati_driver_deps = [
   'dh-modaliases',
   'dkms',
