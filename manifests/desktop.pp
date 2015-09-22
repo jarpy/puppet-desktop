@@ -33,6 +33,7 @@ $packages = [
   'build-essential',
   'gcc-avr',
   'docker.io',
+  'dropbox',
   'git',
   'gnuradio',
   'graphviz',

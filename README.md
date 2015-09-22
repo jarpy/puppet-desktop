@@ -5,6 +5,6 @@ Bootstrap a freshly built system with:
 
 ```bash
 sudo aptitude install --assume-yes git puppet rake
-git clone https://github.com/jarpy/puppet-desktop.git
+git clone --recursive https://github.com/jarpy/puppet-desktop.git
 (cd puppet-desktop && rake)
 ```
