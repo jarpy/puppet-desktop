@@ -4,6 +4,7 @@ include bash
 include keysnail
 include tmux
 include x11::session
+include javascript::eslint
 
 $python_packages = [
   'awscli',
@@ -25,6 +26,7 @@ package { $rubygems:
 }
 
 $packages = [
+  'ansible',
   'apparmor',
   'augeas-tools',
   'automake',
@@ -32,11 +34,14 @@ $packages = [
   'avr-libc',
   'build-essential',
   'gcc-avr',
-  'docker.io',
   'dropbox',
+  'libicu-dev',
+  'evince',
+  'ghc',
   'git',
   'gnuradio',
   'graphviz',
+  'hugs',
   'imagemagick',
   'ipython',
   'ipython-notebook',
@@ -53,6 +58,7 @@ $packages = [
   'libxpm-dev',
   'lynx',
   'lyx',
+  'lxc',
   'mono-complete',
   'ncurses-term',
   'nmap',

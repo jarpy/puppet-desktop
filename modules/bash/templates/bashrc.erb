@@ -41,11 +41,8 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 # Push some dirs onto the PATH if they're not there already.
-for d in $HOME/bin /usr/local/bin /usr/local/sbin /usr/sbin /sbin /usr/local/cuda-6.5/bin; do
+for d in $HOME/bin /usr/local/bin /usr/local/sbin /usr/sbin /sbin /opt/puppetlabs/bin /opt/node/bin; do
   [[ -d $dir ]] && [[ $PATH =~ $d ]] || export PATH=$d:$PATH
-done
-for d in /usr/local/cuda-6.5/lib64; do
-  [[ -d $dir ]] && [[ $LD_LIBRARY_PATH =~ $d ]] || export LD_LIBRARY_PATH=$d:$LD_LIBRARY_PATH
 done
 
 # Let tmux spawn X11 apps on the local display.
@@ -53,17 +50,10 @@ if [[ -n $TMUX ]]; then
   export DISPLAY=:0
 fi
 
-if [[ -n $DISPLAY ]]; then
-  export EDITOR='emacsclient -c --no-wait'
-else
-  export EDITOR='emacsclient -t'
-fi
+export EDITOR=vim
 export VISUAL=$EDITOR
-export ALTERNATE_EDITOR=''
-alias ec=$EDITOR
-alias e=$EDITOR
 
-export AWS_DEFAULT_REGION=ap-southeast-2
+export AWS_DEFAULT_REGION=us-east-1
 export EC2_HOME=~/aws/ec2
 export JAVA_HOME=/usr/lib/jvm/java-6-openjdk-amd64/jre
 
