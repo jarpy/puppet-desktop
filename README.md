@@ -1,5 +1,5 @@
 My desktop environment, implemented with Puppet.
-Tested on Linux Mint 17.2 MATE.
+Tested on Ubuntu MATE 15.10.
 
 Bootstrap a freshly installed system with:
 

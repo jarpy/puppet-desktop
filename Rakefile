@@ -6,5 +6,5 @@ task :default do
   ENV['FACTER_USER'] = ENV['USER']
   ENV['FACTER_HOME'] = ENV['HOME']
 
-  system "sudo -E /opt/puppetlabs/bin/puppet apply --modulepath='./modules:./modules-github' --hiera_config=hiera/hiera.yaml manifests/desktop.pp"
+  system "sudo -E puppet apply --modulepath='./modules:./modules-github' --hiera_config=hiera/hiera.yaml manifests/desktop.pp"
 end

@@ -41,7 +41,15 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 # Push some dirs onto the PATH if they're not there already.
-for d in $HOME/bin /usr/local/bin /usr/local/sbin /usr/sbin /sbin /opt/puppetlabs/bin /opt/node/bin; do
+for d in /usr/local/bin \
+         /usr/local/sbin \
+         /usr/sbin \
+         /sbin \
+         /opt/puppetlabs/bin \
+         /opt/node/bin \
+         /usr/local/go/bin \
+         $HOME/bin
+do
   [[ -d $dir ]] && [[ $PATH =~ $d ]] || export PATH=$d:$PATH
 done
 
@@ -56,6 +64,8 @@ export VISUAL=$EDITOR
 export AWS_DEFAULT_REGION=us-east-1
 export EC2_HOME=~/aws/ec2
 export JAVA_HOME=/usr/lib/jvm/java-6-openjdk-amd64/jre
+
+export GOPATH=$HOME/go
 
 if [ -f ~/bin/git-completion.bash ]; then
   . ~/bin/git-completion.bash
