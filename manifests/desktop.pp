@@ -116,7 +116,7 @@ file { '/etc/ssh/ssh_config':
 }
 
 file { "${::home}/src": ensure => directory }
-
+file { "${::home}/bin": ensure => directory }
 
 File {
   owner => $::user,
