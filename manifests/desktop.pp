@@ -2,6 +2,7 @@ require python
 
 include bash
 include keysnail
+include sudo
 include tmux
 include x11::session
 include javascript::eslint
