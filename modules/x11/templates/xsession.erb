@@ -1,5 +1,6 @@
-mate-settings-daemon &      # handles themes, starts gnome-screensaver. You may have to use gconf to disable it setting the background.
+mate-settings-daemon &
 mate-power-manager &
 nm-applet &
 glipper &
-exec awesome                 # awesome receives xinit's process id; when it terminates, X will be terminated
+[[ -x /usr/bin/vmware-user-suid-wrapper ]] && /usr/bin/vmware-user-suid-wrapper &
+exec awesome

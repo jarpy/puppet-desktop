@@ -8,6 +8,7 @@ include x11::session
 include javascript::eslint
 
 $python_packages = [
+  'ansible',
   'awscli',
   'boto',
   'flake8',
@@ -27,7 +28,6 @@ package { $rubygems:
 }
 
 $packages = [
-  'ansible',
   'apparmor',
   'augeas-tools',
   'automake',
@@ -102,8 +102,10 @@ $ati_driver_deps = [
   'execstack',
   'lib32gcc1',
 ]
-# package { $ati_driver_deps: }
 
+if $::virtual == 'vmware' {
+  package { ['open-vm-tools', 'open-vm-tools-desktop']: }
+}
 
 file { '/usr/share/xsessions/Xsession.desktop':
   content => "[Desktop Entry]\nName=Xsession\nExec=/etc/X11/Xsession\n",
