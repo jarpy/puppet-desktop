@@ -6,7 +6,7 @@ class x11::packages {
     'pavucontrol',
     'xfce4',
     # 'xfce4-settings',
-    # 'xfce4-terminal',
+    'xfce4-terminal',
   ]
   package { $packages: }
 }

@@ -5,12 +5,16 @@ class x11::session {
     content => template('x11/xsession.erb'),
   }
 
+  file { "${::home}/.config/xfce4/terminal":
+    ensure => directory,
+  }
+
   file { "${::home}/.config/xfce4/terminal/terminalrc":
     content => template('x11/terminalrc.erb'),
   }
 
   file { "${::home}/.config/xfce4/terminal/accels.scm":
-    content => ""
+    content => template('x11/accels.scm.erb'),
   }
 
   File {

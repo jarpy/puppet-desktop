@@ -13,6 +13,7 @@ $python_packages = [
   'boto',
   'flake8',
   'ipaddr',
+  'ipython',
 ]
 python::pip { $python_packages: }
 
@@ -43,8 +44,6 @@ $packages = [
   'graphviz',
   'hugs',
   'imagemagick',
-  'ipython',
-  'ipython-notebook',
   'irssi',
   'latex-xcolor',
   'libappindicator1',
