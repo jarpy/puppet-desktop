@@ -55,6 +55,7 @@ $packages = [
   'libncurses5-dev',
   'libtiff5-dev',
   'libxpm-dev',
+  'lm-sensors',
   'lynx',
   'lyx',
   'lxc',
