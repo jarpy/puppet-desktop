@@ -60,10 +60,7 @@ fi
 
 export EDITOR=vim
 export VISUAL=$EDITOR
-
-export AWS_DEFAULT_REGION=us-east-1
-export EC2_HOME=~/aws/ec2
-export JAVA_HOME=/usr/lib/jvm/java-6-openjdk-amd64/jre
+alias e=emacsclient
 
 export GOPATH=$HOME/go
 
@@ -126,7 +123,7 @@ if [ -f ~/bin/git-prompt.sh ]; then
   export GIT_PS1_SHOWSTASHSTATE=true
   export GIT_PS1_SHOWUNTRACKEDFILES=true
   export GIT_PS1_SHOWUPSTREAM="auto"
-  export PROMPT_COMMAND='__git_ps1 "\n${solr_base01}\u@${host_color}\h${solr_base0}${PURPLE}${WHTBLD}" " ${solr_cyan}[${VIRTUAL_ENV}] ${solr_base01} ${solr_yellow}\w${solr_base01} [ $(print_dir_stack)]  ${solr_base1}\n$ "'
+  export PROMPT_COMMAND='__git_ps1 "\n${solr_base01}\u@${host_color}\h${solr_base0}${PURPLE}${WHTBLD}" " ${solr_cyan}${VIRTUAL_ENV} ${solr_yellow}\w${solr_base01} [ $(print_dir_stack)]  ${solr_base1}\n$ "'
 else
   export PS1='$ '
   export PROMPT_COMMAND='echo -ne "\n${solr_base01}${USER}@${host_color}${HOSTNAME}${solr_base01} ${solr_yellow}${PWD}${solr_base0} [ $(print_dir_stack)] \n${solr_base1}"'

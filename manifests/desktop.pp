@@ -22,6 +22,7 @@ $rubygems = [
   'cucumber',
   'puppet-lint',
   'rspec',
+  'rubocop',
 ]
 package { $rubygems:
   provider => 'gem',

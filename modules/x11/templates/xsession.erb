@@ -2,5 +2,7 @@ mate-settings-daemon &
 mate-power-manager &
 nm-applet &
 glipper &
+pidgin &
 [[ -x /usr/bin/vmware-user-suid-wrapper ]] && /usr/bin/vmware-user-suid-wrapper &
+xrandr -q | grep -q 'DP-4 connected 3840x2160' && xrandr --output DP-4 --primary
 exec awesome
