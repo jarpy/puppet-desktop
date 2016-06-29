@@ -90,6 +90,7 @@ $packages = [
   'texlive-generic-recommended',
   'texlive-latex-extra',
   'tightvncserver',
+  'ttf-ancient-fonts-symbola',
   'ttf-bitstream-vera',
   'vim',
   'vim-gnome',
