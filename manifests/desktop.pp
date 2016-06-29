@@ -38,6 +38,7 @@ $packages = [
   'avrdude',
   'avr-libc',
   'build-essential',
+  'cifs-utils',
   'gcc-avr',
   'libicu-dev',
   'evince',
