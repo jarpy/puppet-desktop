@@ -40,6 +40,8 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+export GOPATH=$HOME/go
+
 # Push some dirs onto the PATH if they're not there already.
 for d in /usr/local/bin \
          /usr/local/sbin \
@@ -48,7 +50,8 @@ for d in /usr/local/bin \
          /opt/puppetlabs/bin \
          /opt/node/bin \
          /usr/local/go/bin \
-         $HOME/bin
+         $HOME/bin \
+         $GOPATH/bin
 do
   [[ -d $dir ]] && [[ $PATH =~ $d ]] || export PATH=$d:$PATH
 done
@@ -61,8 +64,6 @@ fi
 export EDITOR=vim
 export VISUAL=$EDITOR
 alias e=emacsclient
-
-export GOPATH=$HOME/go
 
 if [ -f ~/bin/git-completion.bash ]; then
   . ~/bin/git-completion.bash
