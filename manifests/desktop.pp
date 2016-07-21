@@ -32,6 +32,7 @@ package { $rubygems:
 }
 
 $packages = [
+  'apache2-utils',
   'apparmor',
   'augeas-tools',
   'automake',
