@@ -59,3 +59,6 @@ bind C-w run "tmux save-buffer - | xclip -i"
 
 # https://stackoverflow.com/questions/21378569/how-to-auto-update-ssh-agent-environment-variables-when-attaching-to-existing-tm/23187030#23187030
 setenv -g SSH_AUTH_SOCK $HOME/.ssh/ssh_auth_sock
+
+# Explicitly use a login shell (RVM likes this).
+set-option -g default-command "/bin/bash --login"
