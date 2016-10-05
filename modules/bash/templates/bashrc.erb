@@ -50,7 +50,9 @@ for d in /usr/local/bin \
          /opt/puppetlabs/bin \
          /opt/node/bin \
          /usr/local/go/bin \
+         $HOME/.local/bin \
          $HOME/bin \
+         $HOME/Dropbox/Bin \
          $GOPATH/bin
 do
   [[ -d $dir ]] && [[ $PATH =~ $d ]] || export PATH=$d:$PATH
@@ -124,7 +126,7 @@ if [ -f ~/bin/git-prompt.sh ]; then
   export GIT_PS1_SHOWSTASHSTATE=true
   export GIT_PS1_SHOWUNTRACKEDFILES=true
   export GIT_PS1_SHOWUPSTREAM="auto"
-  export PROMPT_COMMAND='__git_ps1 "\n${solr_base01}\u@${host_color}\h${solr_base0}${PURPLE}${WHTBLD}" " ${solr_green}$([[ -n ${VIRTUAL_ENV} ]] && echo 'VE') ${solr_yellow}\w${solr_base01} [ $(print_dir_stack)]  ${solr_base1}\n$ "'
+  export PROMPT_COMMAND='__git_ps1 "\n${solr_base01}\u@${host_color}\h${solr_base0}${PURPLE}${WHTBLD}" " ${solr_green}$([[ -n ${VIRTUAL_ENV} ]] && echo [🐍 $(basename $(dirname $VIRTUAL_ENV))]) ${solr_yellow}\w${solr_base01} [ $(print_dir_stack)]  ${solr_base1}\n$ "'
 else
   export PS1='$ '
   export PROMPT_COMMAND='echo -ne "\n${solr_base01}${USER}@${host_color}${HOSTNAME}${solr_base01} ${solr_yellow}${PWD}${solr_base0} [ $(print_dir_stack)] \n${solr_base1}"'
@@ -138,3 +140,5 @@ monkey_patch_cd_to_pushd() {
   fi
   pushd $target > /dev/null
 }
+
+eval "$(direnv hook bash)"

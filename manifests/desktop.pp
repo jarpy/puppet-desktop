@@ -11,11 +11,13 @@ include javascript::eslint
 $python_packages = [
   'ansible',
   'awscli',
-  'boto',
+  'boto3',
   'docker-compose',
   'flake8',
   'ipaddr',
   'ipython',
+  'lambkin',
+  'twine',
 ]
 python::pip { $python_packages: }
 
@@ -50,7 +52,8 @@ $packages = [
   'hugs',
   'imagemagick',
   'irssi',
-  'latex-xcolor',
+  # 'latex-xcolor',  # Strangely not idempotent.
+  'letsencrypt',
   'libappindicator1',
   'libcurl4-openssl-dev',
   'libevent-dev',

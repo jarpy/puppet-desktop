@@ -17,6 +17,11 @@ class x11::session {
     content => template('x11/accels.scm.erb'),
   }
 
+  file { "${::home}/bin/slow-mouse":
+    content => template('x11/slow-mouse.sh.erb'),
+    mode    => '0755',
+  }
+
   File {
     owner   => $::user,
     group   => $::user,

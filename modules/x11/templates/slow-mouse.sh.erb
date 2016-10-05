@@ -1,0 +1,7 @@
+#!/bin/bash
+set -eou pipefail
+
+device_id=$(xinput list | awk '/Lenovo.*Mouse/ {print $9}' | tr -cd '[:digit:]')
+setting_id=$(xinput list-props $device_id | awk '/Constant Deceleration/ {print $5}' | tr -cd '[:digit:]')
+
+xinput set-prop $device_id $setting_id 3
