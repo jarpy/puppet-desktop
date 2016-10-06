@@ -79,6 +79,8 @@ export PURPLEBLD="\e[38;5;61m"
 export BLKBLD="\e[38;5;240m"
 export YLW="\e[38;5;136m"
 export PS1="\n${BLKBLD}\u@\h ${solr_violet} ${BLKBLD}$(dirs)${BLKBLD}\n$ "
+export BOLD="\e[1m"
+export CLEAR="\e[0m"
 
 export solr_base03="\e[38;5;234m"
 export solr_base02="\e[38;5;235m"
@@ -126,7 +128,7 @@ if [ -f ~/bin/git-prompt.sh ]; then
   export GIT_PS1_SHOWSTASHSTATE=true
   export GIT_PS1_SHOWUNTRACKEDFILES=true
   export GIT_PS1_SHOWUPSTREAM="auto"
-  export PROMPT_COMMAND='__git_ps1 "\n${solr_base01}\u@${host_color}\h${solr_base0}${PURPLE}${WHTBLD}" " ${solr_green}$([[ -n ${VIRTUAL_ENV} ]] && echo [🐍 $(basename $(dirname $VIRTUAL_ENV))]) ${solr_yellow}\w${solr_base01} [ $(print_dir_stack)]  ${solr_base1}\n$ "'
+  export PROMPT_COMMAND='__git_ps1 "\n${solr_base01}\u@${host_color}\h${solr_base0}${solr_cyan}${BOLD}$([[ -n ${DOCKER_HOST} ]] && echo " 🐋 " )${CLEAR}" " ${solr_green}$([[ -n ${VIRTUAL_ENV} ]] && echo [🐍 $(basename $(dirname $VIRTUAL_ENV))]) ${solr_yellow}\w${solr_base01} [ $(print_dir_stack)]  ${solr_base1}\n$ ${CLEAR}"'
 else
   export PS1='$ '
   export PROMPT_COMMAND='echo -ne "\n${solr_base01}${USER}@${host_color}${HOSTNAME}${solr_base01} ${solr_yellow}${PWD}${solr_base0} [ $(print_dir_stack)] \n${solr_base1}"'
