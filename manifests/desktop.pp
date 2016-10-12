@@ -100,6 +100,7 @@ $packages = [
   'vim',
   'vim-gnome',
   'wireshark',
+  'xclip',
   'x11vnc',
 ]
 package { $packages: }
