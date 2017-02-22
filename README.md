@@ -4,7 +4,7 @@ Tested on Ubuntu MATE 15.10.
 Bootstrap a freshly installed system with:
 
 ```bash
-sudo apt-get install aptitude
+sudo apt-get install -y aptitude
 wget -P /tmp https://apt.puppetlabs.com/puppetlabs-release-pc1-wily.deb
 sudo dpkg -i /tmp/puppetlabs-release-pc1-wily.deb
 sudo aptitude update
