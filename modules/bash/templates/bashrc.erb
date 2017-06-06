@@ -144,4 +144,9 @@ monkey_patch_cd_to_pushd() {
   pushd $target > /dev/null
 }
 
+# WSL
+export DISPLAY=:0
+export PULSE_SERVER=tcp:localhost
+export DOCKER_HOST=localhost
+
 eval "$(direnv hook bash)"
