@@ -4,13 +4,8 @@ set -g status-left-length 16
 set -g base-index 1
 set -g history-limit 100000
 set -g renumber-windows on
+set-window-option -g xterm-keys on
 set-window-option -g automatic-rename off
-bind-key -n S-Up select-pane -U
-bind-key -n S-Down select-pane -D
-bind-key -n S-Left select-pane -L
-bind-key -n S-Right select-pane -R
-bind-key -n C-S-Right next-window
-bind-key -n C-S-Left previous-window
 bind-key -n F1 select-window -t 1
 bind-key -n F2 select-window -t 2
 bind-key -n F3 select-window -t 3
