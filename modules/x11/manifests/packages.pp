@@ -3,7 +3,6 @@ class x11::packages {
     'awesome',
     'awesome-extra',
     'pavucontrol',
-    'glipper',
     'gnome-terminal',
     'xfce4',
     'xfce4-terminal',

@@ -75,7 +75,6 @@ $packages = [
   'ntp',
   'openssh-server',
   'openvpn',
-  'pdftk',
   'pry',
   'pwgen',
   'python-pygments',
