@@ -1,5 +1,5 @@
 My desktop environment, implemented with Puppet.
-Tested on Ubuntu MATE 15.10.
+Tested on Ubuntu 18.04.
 
 Bootstrap a freshly installed system with:
 
