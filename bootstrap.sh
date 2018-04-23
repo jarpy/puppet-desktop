@@ -1,8 +1,5 @@
 #!/bin/bash
 
-wget https://apt.puppetlabs.com/puppetlabs-release-pc1-wily.deb
-dpkg -i puppetlabs-release-pc1-wily.deb
-rm puppetlabs-release-pc1-wily.deb
-sudo aptitude install --assume-yes git puppet-agent rake
-#git clone --recursive https://github.com/jarpy/puppet-desktop.git
-#(cd puppet-desktop && rake)
+sudo aptitude install --assume-yes puppet rake
+puppet module install stankevich-python --version 1.18 --target-dir=modules-forge
+puppet module install puppetlabs-stdlib --version 4.25 --target-dir=modules-forge

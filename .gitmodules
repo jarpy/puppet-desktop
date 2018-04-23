@@ -1,6 +1,0 @@
-[submodule "modules-github/python"]
-	path = modules-github/python
-	url = https://github.com/stankevich/puppet-python.git
-[submodule "modules-github/stdlib"]
-	path = modules-github/stdlib
-	url = https://github.com/puppetlabs/puppetlabs-stdlib.git
