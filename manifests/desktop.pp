@@ -53,7 +53,6 @@ $packages = [
   'imagemagick',
   'irssi',
   'jq',
-  # 'latex-xcolor',  # Strangely not idempotent.
   'letsencrypt',
   'libappindicator1',
   'libcurl4-openssl-dev',
