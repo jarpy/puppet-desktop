@@ -1,10 +1,7 @@
 ---
-:backends: yaml
+version: 5
 
-:yaml:
-  :datadir: ./hiera
-
-:hierarchy:
-  - common
-
-:logger: console
+hierarchy:
+  - name: Global/common hiera data
+    paths: [common.yaml]
+    data_hash: yaml_data
