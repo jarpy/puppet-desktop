@@ -18,7 +18,13 @@ class ssh {
       command => "/usr/bin/ssh-keygen -t ${cipher} -f ${file} -N ''",
       creates => $file,
       require => Package['openssh'],
+      notify  => Service['sshd'],
     }
+  }
+
+  service { 'sshd':
+    ensure => running,
+    enable => true,
   }
 
   file { "/home/${me}/.ssh":
