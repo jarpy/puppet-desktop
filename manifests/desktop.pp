@@ -1,105 +1,78 @@
-include bash
+# require python
+
+#include bash
+#include ssh
+include docker
 include git
-include ssh
 include sudo
 include tmux
-include x11::session
+#include x11::session
+
+$me = $facts['user']
 
 File {
-  owner => $::user,
-  group => $::user,
+  owner   => $me,
+  group   => $me,
+  require => User[$me]
 }
 
-Package { ensure => latest }
+Package {
+  ensure => latest,
+}
 
 $python_packages = [
+  'ansible',
   'awscli',
+  'boto3',
   'docker-compose',
   'flake8',
   'ipaddr',
   'ipython',
-  'mypy',
+  'lambkin',
   'twine',
 ]
+#python::pip { $python_packages: }
 
-package { $python_packages:
-  provider => pip3,
-  require  => Package['python3-pip'],
-}
 
 $rubygems = [
+  'cucumber',
   'puppet-lint',
   'rspec',
   'rubocop',
 ]
-
-package { $rubygems:
-  provider => 'gem',
-  require  => Package['ruby-dev']
-}
+#package { $rubygems:
+#  provider => 'gem',
+#  require  => Package['ruby-dev']
+#}
 
 $packages = [
-  'apache2-utils',
-  'augeas-tools',
-  'automake',
-  'build-essential',
-  'cifs-utils',
-  'curl',
-  'direnv',
-  'libicu-dev',
-  'git',
-  'graphviz',
+  'emacs',
+  'fish',
+  'fzf',
   'jq',
-  'letsencrypt',
-  'libcurl4-openssl-dev',
-  'libevent-dev',
-  'libgif-dev',
-  'libgnutls28-dev',
-  'libgtk-3-dev',
-  'libjpeg-dev',
-  'libncurses5-dev',
-  'libtiff5-dev',
-  'libxpm-dev',
-  'lynx',
-  'lyx',
-  'ncurses-term',
   'nmap',
-  'openssh-server',
-  'openvpn',
-  'pry',
+  'openssh',
   'pwgen',
-  'python-pygments',
-  'python3-pip',
-  'rake',
-  'ruby-dev',
-  'sshfs',
-  'sshpass',
-  'texinfo',
-  'texlive',
-  'texlive-fonts-extra',
-  'texlive-generic-extra',
-  'texlive-generic-recommended',
-  'texlive-latex-extra',
-  'tightvncserver',
-  'ttf-ancient-fonts-symbola',
-  'ttf-bitstream-vera',
+  'ruby-rake',
   'vim',
-  'vim-gnome',
-  'wireshark',
-  'xclip',
-  'x11vnc',
 ]
 package { $packages: }
 
-file { '/usr/share/xsessions/Xsession.desktop':
-  content => "[Desktop Entry]\nName=Xsession\nExec=/etc/X11/Xsession\n",
+user { $me:
+  home       => "/home/${me}",
+  managehome => true,
+  shell      => '/usr/bin/fish',
+  groups     => [
+    'docker',
+  ],
+  require    => [
+    Package['docker'],
+  ]
 }
 
-# exec {'install_docker':
-#   command => '/usr/bin/curl -s https://get.docker.com/ | /bin/bash',
-#   unless  => '/usr/bin/stat /usr/bin/docker',
-#   require => Package['curl'],
-# }
+#file { '/usr/share/xsessions/Xsession.desktop':
+#  content => "[Desktop Entry]\nName=Xsession\nExec=/etc/X11/Xsession\n",
+#}
 
 #file { '/etc/ssh/ssh_config':
 #  content => template('ssh/ssh_config.erb'),
@@ -107,5 +80,5 @@ file { '/usr/share/xsessions/Xsession.desktop':
 #  group   => 'root',
 #}
 
-file { "${::home}/src": ensure => directory }
-file { "${::home}/bin": ensure => directory }
+file { "/home/${me}/src": ensure => directory }
+file { "/home/${me}/bin": ensure => directory }

@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [[ ${UID} == 0 ]]; then
+  echo >&2 Don\'t run apply as root. Please use your normal user.
+  exit 1
+fi
+
+# We will later become root to run Puppet, but we'll need to remember our real
+# username within the Puppet run. Store it in a fact.
+export FACTER_USER=$USER
+
+sudo -E \
+     puppet apply \
+     --modulepath='./modules:./modules-forge' \
+     --hiera_config=./hiera/hiera.yaml \
+     manifests/desktop.pp
+
+#puppet module install stankevich-python --version 1.18 --target-dir=modules-forge
+#puppet module install puppetlabs-stdlib --version 4.25 --target-dir=modules-forge

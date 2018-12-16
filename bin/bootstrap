@@ -1,0 +1,21 @@
+#!/bin/bash
+
+set -eo pipefail
+
+if [[ ${UID} != 0 ]]; then
+  echo The bootstrap script must be run as root.
+  exit 1;
+fi
+
+if [[ -z ${1} ]]; then
+  echo Usage: bootstrap USERNAME
+  exit 1;
+else
+  user=${1}
+  useradd --create-home ${user} || true
+fi
+
+pacman --sync --noconfirm puppet sudo
+echo "${user} ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/${user}
+
+echo "Bootstrap complete. You may now run 'apply' as '${user}'."

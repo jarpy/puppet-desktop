@@ -1,7 +1,11 @@
 class tmux {
-  package { 'tmux': ensure => latest }
+  $me = $facts['user']
 
-  file { "${::home}/.tmux.conf":
+  package { 'tmux':
+    ensure => latest
+  }
+
+  file { "/home/${me}/.tmux.conf":
     content => template('tmux/tmux.conf.erb'),
     owner   => $::user,
     group   => $::user,
