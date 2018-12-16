@@ -1,9 +1,9 @@
 # require python
 
 #include bash
-#include ssh
 include docker
 include git
+include ssh
 include sudo
 include tmux
 #include x11::session
@@ -51,7 +51,6 @@ $packages = [
   'fzf',
   'jq',
   'nmap',
-  'openssh',
   'pwgen',
   'ruby-rake',
   'vim',
