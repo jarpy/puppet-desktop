@@ -20,6 +20,11 @@ Package {
   ensure => latest,
 }
 
+service { 'dhcpcd@eno1':
+  ensure => running,
+  enable => true,
+}
+
 $python_packages = [
   'ansible',
   'awscli',
