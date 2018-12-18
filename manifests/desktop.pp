@@ -23,6 +23,10 @@ service { 'dhcpcd@eno1':
   enable => true,
 }
 
+service { 'fstrim.timer':
+  enable => true,
+}
+
 $python_packages = [
   'ansible',
   'awscli',
