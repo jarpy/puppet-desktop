@@ -25,12 +25,10 @@ service { 'dhcpcd@eno1':
 $python_packages = [
   'ansible',
   'awscli',
-  'boto3',
   'docker-compose',
   'flake8',
   'ipaddr',
   'ipython',
-  'lambkin',
   'twine',
 ]
 #python::pip { $python_packages: }
