@@ -1,2 +1,4 @@
 python::dev: true
 python::virtualenv: present
+
+locale::lang: en_AU

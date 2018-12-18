@@ -3,6 +3,7 @@
 #include bash
 include docker
 include git
+include locale
 include ssh
 include sudo
 include tmux
