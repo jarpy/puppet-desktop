@@ -1,4 +1,7 @@
 class bash {
+  File {
+    require => File["${::home}/bin"]
+  }
 
   file { "${::home}/.bashrc":
     content => template('bash/bashrc.erb'),
@@ -19,9 +22,4 @@ class bash {
   file { "${::home}/.dircolors":
     content => template('bash/dircolors.erb'),
   }
-
-  File {
-    require => File["${::home}/bin"]
-  }
 }
-

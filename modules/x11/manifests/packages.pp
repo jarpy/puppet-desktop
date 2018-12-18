@@ -1,9 +1,9 @@
 class x11::packages {
   $packages = [
-    'awesome',
-    'awesome-extra',
-    'pavucontrol',
-    'gnome-terminal',
+    # 'awesome',
+    # 'awesome-extra',
+    # 'pavucontrol',
+    # 'gnome-terminal',
     'xfce4',
     'xfce4-terminal',
   ]
