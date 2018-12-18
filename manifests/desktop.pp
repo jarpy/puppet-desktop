@@ -51,6 +51,7 @@ $rubygems = [
 #}
 
 $packages = [
+  'efibootmgr',
   'emacs',
   'fish',
   'fzf',
