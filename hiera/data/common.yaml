@@ -1,4 +1,6 @@
 python::dev: true
 python::virtualenv: present
 
-locale::lang: en_AU
+locale::language: en
+locale::territory: AU
+locale::codeset: UTF-8

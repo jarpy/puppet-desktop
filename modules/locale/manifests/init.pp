@@ -1,6 +1,7 @@
 class locale (
-  String $charset = 'UTF-8',
-  String $lang = "en_GB.${charset}",
+  String $language = "en",
+  String $territory = "GB",
+  String $codeset = "UTF-8",
 )
 
 {
@@ -10,11 +11,16 @@ class locale (
     mode  => '0644',
   }
 
+  Exec {
+    path => '/usr/bin',
+  }
+
+  $lang = "${language}_${territory}.${codeset}"
   file { '/etc/locale.gen':
-    content => "${lang} ${charset}\n",
+    content => "${lang} ${codeset}\n",
   }
   ~>
-  exec { '/usr/bin/locale-gen':
+  exec { 'locale-gen':
     refreshonly => true,
   }
 
@@ -22,8 +28,8 @@ class locale (
     content => "LANG=${lang}\n",
   }
   ~>
-  exec { "/usr/bin/localectl set-locale LANG=${lang}":
-    unless  => "/usr/bin/localectl status | grep -q LANG=${lang}",
-    require => Exec['/usr/bin/locale-gen'],
+  exec { "localectl set-locale LANG=${lang}":
+    unless  => "localectl status | grep -q LANG=${lang}",
+    require => Exec['locale-gen'],
   }
 }
