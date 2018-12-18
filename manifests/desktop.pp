@@ -53,6 +53,7 @@ $packages = [
   'jq',
   'mosh',
   'nmap',
+  'pacmatic',
   'pwgen',
   'ruby-rake',
   'vim',
