@@ -1,7 +1,5 @@
 class docker {
-  package { 'docker':
-    ensure => latest
-  }
+  package { 'docker': }
   ~>
   service { 'docker':
     ensure => running,

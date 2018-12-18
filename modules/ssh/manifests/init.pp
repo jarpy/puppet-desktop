@@ -6,9 +6,7 @@ class ssh {
     group => $me,
   }
 
-  package { 'openssh':
-    ensure => latest,
-  }
+  package { 'openssh': }
 
   # Generate SSH host keys.
   $ciphers = ['rsa', 'dsa', 'ecdsa', 'ed25519']

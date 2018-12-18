@@ -17,10 +17,6 @@ File {
   require => User[$me]
 }
 
-Package {
-  ensure => latest,
-}
-
 service { 'dhcpcd@eno1':
   ensure => running,
   enable => true,

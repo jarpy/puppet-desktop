@@ -6,9 +6,7 @@ class git {
     group => $me,
   }
 
-  package { 'git':
-    ensure => latest
-  }
+  package { 'git': }
 
   file { "/home/${me}/.gitconfig":
     content => template('git/gitconfig.erb'),
