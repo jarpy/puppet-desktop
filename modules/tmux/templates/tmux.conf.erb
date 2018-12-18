@@ -96,6 +96,6 @@ set-option -g status-right ''
 bind C-w run "tmux save-buffer - | xclip -i"
 
 # Explicitly use a login shell (RVM likes this).
-set-option -g default-command "/usr/local/bin/fish --login"
+set-option -g default-command "/usr/bin/env fish --login"
 
 setenv -g SSH_AUTH_SOCK $XDG_RUNTIME_DIR/keyring/ssh
