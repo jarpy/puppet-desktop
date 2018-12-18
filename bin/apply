@@ -11,9 +11,6 @@ export FACTER_USER=$USER
 
 sudo -E \
      puppet apply \
-     --modulepath='./modules:./modules-forge' \
+     --modulepath=./modules \
      --hiera_config=./hiera/hiera.yaml \
      manifests/desktop.pp
-
-#puppet module install stankevich-python --version 1.18 --target-dir=modules-forge
-#puppet module install puppetlabs-stdlib --version 4.25 --target-dir=modules-forge
