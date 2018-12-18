@@ -8,6 +8,7 @@ include ntp
 include ssh
 include sudo
 include tmux
+include virtualbox
 #include x11::session
 
 $me = $facts['user']
@@ -61,6 +62,7 @@ $packages = [
   'pacmatic',
   'pwgen',
   'ruby-rake',
+  'vagrant',
   'vim',
 ]
 package { $packages: }
