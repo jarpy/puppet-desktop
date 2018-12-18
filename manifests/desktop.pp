@@ -4,6 +4,7 @@
 include docker
 include git
 include locale
+include ntp
 include ssh
 include sudo
 include tmux
