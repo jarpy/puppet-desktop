@@ -52,6 +52,7 @@ $packages = [
   'fish',
   'fzf',
   'jq',
+  'mosh',
   'nmap',
   'pwgen',
   'ruby-rake',
