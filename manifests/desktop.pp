@@ -1,6 +1,7 @@
 # require python
 
 #include bash
+include browsh
 include docker
 include git
 include locale
@@ -55,6 +56,7 @@ $packages = [
   'base-devel',
   'efibootmgr',
   'emacs',
+  'firefox',
   'fish',
   'fzf',
   'jq',
@@ -62,6 +64,7 @@ $packages = [
   'nmap',
   'pacmatic',
   'pwgen',
+  'python-virtualenv',
   'ruby-rake',
   'vagrant',
   'vim',
