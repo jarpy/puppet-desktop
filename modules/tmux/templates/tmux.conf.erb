@@ -99,3 +99,5 @@ bind C-w run "tmux save-buffer - | xclip -i"
 set-option -g default-command "/usr/bin/env fish --login"
 
 setenv -g SSH_AUTH_SOCK $XDG_RUNTIME_DIR/keyring/ssh
+
+set -g default-terminal screen-256color
