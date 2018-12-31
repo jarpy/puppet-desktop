@@ -1,10 +1,18 @@
 My Arch Linux desktop environment, implemented with Puppet.
 
-Bootstrap a new machine with:
+Bootstrap a new machine (as root) with:
 
 ```bash
-git clone https://github.com/jarpy/puppet-desktop.git
+pacman --noconfirm -Su git
+git clone https://github.com/jarpy/puppet-desktop
 cd puppet-desktop
-./bootstrap.sh
-rake
+./bin/bootstrap USERNAME
+```
+
+You now have all the pre-requisites installed and a local user account.
+Apply the configuration with your new user:
+
+```
+su USERNAME
+./bin/apply
 ```
