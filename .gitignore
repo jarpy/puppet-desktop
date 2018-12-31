@@ -1,1 +1,4 @@
 puppetlabs-release-*.deb
+**/#*
+**/.#*
+**/*~

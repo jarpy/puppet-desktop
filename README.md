@@ -10,7 +10,9 @@ cd puppet-desktop
 ```
 
 You now have all the pre-requisites installed and a local user account.
-Apply the configuration with your new user:
+
+Review `hiera/data/common.yaml` for any local changes you may need, then
+apply the configuration with your new user:
 
 ```
 su USERNAME

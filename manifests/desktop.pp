@@ -3,6 +3,7 @@
 #include bash
 include browsh
 include direnv
+include dhcpcd
 include docker
 include git
 include locale
@@ -20,11 +21,6 @@ File {
   owner   => $me,
   group   => $me,
   require => User[$me]
-}
-
-service { 'dhcpcd@eno1':
-  ensure => running,
-  enable => true,
 }
 
 service { 'fstrim.timer':
