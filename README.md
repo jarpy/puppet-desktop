@@ -1,5 +1,4 @@
-My desktop environment, implemented with Puppet.
-Tested on Ubuntu 18.04.
+My Arch Linux desktop environment, implemented with Puppet.
 
 Bootstrap a new machine with:
 
