@@ -2,6 +2,7 @@
 
 #include bash
 include browsh
+include direnv
 include docker
 include git
 include locale
