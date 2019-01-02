@@ -63,6 +63,7 @@ $packages = [
   'fish',
   'fzf',
   'jq',
+  'lsof',
   'mosh',
   'nmap',
   'pacmatic',
