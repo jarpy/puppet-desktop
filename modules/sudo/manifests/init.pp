@@ -5,6 +5,6 @@ class sudo {
   ->
   file { "no_password_sudo_for_${me}":
     path    => "/etc/sudoers.d/${me}",
-    content => "${me} ALL=(ALL) NOPASSWD: ALL",
+    content => "${me} ALL=(ALL) NOPASSWD: ALL\n",
   }
 }
