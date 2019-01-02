@@ -16,6 +16,8 @@ else
 fi
 
 pacman --sync --noconfirm puppet sudo
+puppet module install puppetlabs-vcsrepo
+
 echo "${user} ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/${user}
 
 echo "Bootstrap complete. You may now run 'apply' as '${user}'."

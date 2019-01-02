@@ -11,6 +11,6 @@ export FACTER_USER=$USER
 
 sudo -E \
      puppet apply \
-     --modulepath=./modules \
+     --modulepath=./modules:/etc/puppetlabs/code/modules \
      --hiera_config=./hiera/hiera.yaml \
      manifests/desktop.pp

@@ -5,6 +5,7 @@ include browsh
 include direnv
 include dhcpcd
 include docker
+include emacs
 include git
 include locale
 include minikube
@@ -54,7 +55,6 @@ $packages = [
   'awesome',
   'base-devel',
   'efibootmgr',
-  'emacs',
   'firefox',
   'fish',
   'fzf',
