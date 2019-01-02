@@ -15,6 +15,7 @@ include ssh
 include sudo
 include tmux
 include virtualbox
+include xorg
 #include x11::session
 
 $me = $facts['user']
@@ -53,7 +54,6 @@ $rubygems = [
 #}
 
 $packages = [
-  'awesome',
   'base-devel',
   'efibootmgr',
   'firefox',
