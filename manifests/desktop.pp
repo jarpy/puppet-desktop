@@ -70,7 +70,12 @@ $packages = [
   'pwgen',
   'python-virtualenv',
   'ruby-rake',
+  'openssl-1.0',
+  'strace',
+  'tigervnc',
+  'ttf-bitstream-vera',
   'vagrant',
+  'vault',
   'vim',
 ]
 package { $packages: }
