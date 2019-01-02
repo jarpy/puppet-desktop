@@ -5,6 +5,7 @@ include browsh
 include docker
 include git
 include locale
+include minikube
 include ntp
 include ssh
 include sudo
