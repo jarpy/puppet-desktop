@@ -13,6 +13,7 @@ include minikube
 include ntp
 include ssh
 include sudo
+include termite
 include tmux
 include virtualbox
 include xorg
