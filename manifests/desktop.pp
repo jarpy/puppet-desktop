@@ -56,6 +56,7 @@ $rubygems = [
 
 $packages = [
   'base-devel',
+  'chromium',
   'efibootmgr',
   'firefox',
   'fzf',
