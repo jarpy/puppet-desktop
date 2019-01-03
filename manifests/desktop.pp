@@ -62,6 +62,7 @@ $packages = [
   'jq',
   'lsof',
   'mosh',
+  'mtr',
   'nmap',
   'pacmatic',
   'pwgen',
