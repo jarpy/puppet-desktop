@@ -1,11 +1,6 @@
 class ssh {
   $me = $facts['user']
 
-  File {
-    owner => $me,
-    group => $me,
-  }
-
   package { 'openssh': }
 
   # Generate SSH host keys.
@@ -28,10 +23,28 @@ class ssh {
   file { "/home/${me}/.ssh":
     ensure => directory,
     mode   => '0755',
+    owner  => $me,
+    group  => $me,
   }
 
   file { "/home/${me}/.ssh/authorized_keys":
     content => template('ssh/authorized_keys.erb'),
     mode    => '0600',
+    owner   => $me,
+    group   => $me,
+  }
+
+  file { "/root/.ssh":
+    ensure => directory,
+    mode   => '0755',
+    owner  => 'root',
+    group  => 'root',
+  }
+
+  file { "/root/.ssh/authorized_keys":
+    content => template('ssh/authorized_keys.erb'),
+    mode    => '0600',
+    owner   => 'root',
+    group   => 'root',
   }
 }
