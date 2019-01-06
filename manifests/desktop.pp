@@ -71,6 +71,7 @@ $packages = [
   'python-virtualenv',
   'openssl-1.0',
   'openvpn',
+  'sshpass',
   'strace',
   'tigervnc',
   'ttf-bitstream-vera',
