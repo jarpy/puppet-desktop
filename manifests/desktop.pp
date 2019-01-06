@@ -66,6 +66,7 @@ $packages = [
   'mtr',
   'nmap',
   'pacmatic',
+  'packer',
   'pwgen',
   'python-virtualenv',
   'openssl-1.0',
