@@ -15,8 +15,9 @@ else
   useradd --create-home ${user} || true
 fi
 
-pacman --sync --noconfirm puppet sudo
-puppet module install puppetlabs-vcsrepo
+pacman --sync --noconfirm puppet sudo ruby-augeas
+puppet module install puppetlabs/vcsrepo
+puppet module install herculesteam/augeasproviders_sysctl
 
 echo "${user} ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/${user}
 
