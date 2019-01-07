@@ -16,6 +16,7 @@ include sudo
 include termite
 include tmux
 include virtualbox
+include vnc
 include xorg
 #include x11::session
 
@@ -73,7 +74,6 @@ $packages = [
   'openvpn',
   'sshpass',
   'strace',
-  'tigervnc',
   'ttf-bitstream-vera',
   'vagrant',
   'vault',
