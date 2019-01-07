@@ -6,7 +6,7 @@ class fish {
   vcsrepo { "/home/${me}/.config/fish":
     ensure   => present,
     provider => git,
-    source   => 'https://github.com/jarpy/fish-config',
+    source   => 'git@github.com:jarpy/fish-config.git',
     user     => $me,
   }
 }
