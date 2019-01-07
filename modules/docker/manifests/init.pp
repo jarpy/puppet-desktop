@@ -5,4 +5,6 @@ class docker {
     ensure => running,
     enable => true,
   }
+
+  package { 'docker-compose': }
 }
