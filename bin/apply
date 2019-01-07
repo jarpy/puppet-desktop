@@ -13,4 +13,5 @@ sudo -E \
      puppet apply \
      --modulepath=./modules:/etc/puppetlabs/code/modules \
      --hiera_config=./hiera/hiera.yaml \
-     manifests/desktop.pp
+     manifests/desktop.pp \
+     $@
