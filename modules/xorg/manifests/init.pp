@@ -12,5 +12,8 @@ class xorg {
 
   file { "/home/$me/.xinitrc":
     content => template('xorg/xinitrc.erb'),
+    mode    => '0755',
+    owner   => $me,
+    group   => $me,
   }
 }
