@@ -1,7 +1,12 @@
 ---
 version: 5
 
+defaults:
+  data_hash: yaml_data
+
 hierarchy:
   - name: Global/common hiera data
     paths: [common.yaml]
-    data_hash: yaml_data
+
+  - name: "Per-node data"
+    path: "nodes/%{hostname}.yaml"
