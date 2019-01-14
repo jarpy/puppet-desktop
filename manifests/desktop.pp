@@ -116,6 +116,7 @@ file { "/home/${me}/bin": ensure => directory }
 
 # Elasticsearch demands this.
 sysctl { "vm.max_map_count":
-  ensure => present,
-  value  => "262144",
+  ensure  => present,
+  value   => "262144",
+  persist => true,
 }
