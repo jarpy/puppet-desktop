@@ -75,6 +75,7 @@ $packages = [
   'openvpn',
   'otf-ipafont',
   'packer',
+  'pacman-contrib', # REF: https://bugs.archlinux.org/task/58766
   'pacmatic',
   'pavucontrol',
   'pulseaudio',
