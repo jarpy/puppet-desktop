@@ -9,6 +9,10 @@ class xorg {
     'xterm',
   ]
   package { $packages: }
+  ->
+  file { "/etc/X11/xorg.conf.d/100-touchpad.conf":
+    content => template('xorg/touchpad.conf.erb'),
+  }
 
   file { "/home/$me/.xinitrc":
     content => template('xorg/xinitrc.erb'),
