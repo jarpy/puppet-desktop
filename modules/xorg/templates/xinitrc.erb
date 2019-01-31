@@ -23,4 +23,8 @@ if [ -f "$usermodmap" ]; then
     xmodmap "$usermodmap"
 fi
 
+if [ "$DISPLAY" == ':0' ]; then
+    pulseaudio &
+fi
+
 exec awesome
