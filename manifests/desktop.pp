@@ -8,6 +8,7 @@ include docker
 include emacs
 include fish
 include git
+include gron
 include locale
 include minikube
 include ntp
@@ -33,16 +34,21 @@ service { 'fstrim.timer':
 }
 
 $python_packages = [
-  'ansible',
-  'awscli',
-  'docker-compose',
-  'flake8',
-  'ipaddr',
+#  'ansible',
+#  'awscli',
+#  'docker-compose',
+#  'flake8',
+  'grip',
+#  'ipaddr',
+  'jsonrpclib',
   'ipython',
-  'twine',
+#  'twine',
 ]
-#python::pip { $python_packages: }
 
+package { $python_packages:
+  provider => pip,
+  require  => Package['python-pip'],
+}
 
 $rubygems = [
   'cucumber',
@@ -58,8 +64,12 @@ $rubygems = [
 $packages = [
   'aspell',
   'aspell-en',
+  'aws-cli',
   'base-devel',
+  'bind-tools',
   'chromium',
+  'clojure',
+  'copyq',
   'efibootmgr',
   'firefox',
   'freerdp',
@@ -68,9 +78,13 @@ $packages = [
   'lsof',
   'maim',
   'mercurial',
+  'mpg123',
+  'moreutils',
   'mosh',
   'mtr',
   'nmap',
+  'npm',
+  'noto-fonts-emoji',
   'openssl-1.0',
   'openvpn',
   'otf-ipafont',
@@ -81,15 +95,24 @@ $packages = [
   'pulseaudio',
   'pulseaudio-alsa',
   'pwgen',
+  'python2',
   'python-black',
+  'python-pip',
   'python-virtualenv',
+  'python-yapsy',
+  'ruby-bundler',
   'sshpass',
   'strace',
+  'time',
   'ttf-bitstream-vera',
   'vagrant',
   'vault',
   'vim',
   'xclip',
+  'xdotool',
+  'xscreensaver',
+  'xsel',
+  'xorg-xprop',
 ]
 package { $packages: }
 
