@@ -71,4 +71,8 @@ set-option -g default-command "/usr/bin/env fish --login"
 
 setenv -g SSH_AUTH_SOCK $XDG_RUNTIME_DIR/keyring/ssh
 
+# Pass TERM_PROGRAM in case we are in vscode.
+setenv TERM_PROGRAM $TERM_PROGRAM
+
+
 set -g default-terminal screen-256color
