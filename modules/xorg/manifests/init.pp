@@ -6,6 +6,7 @@ class xorg {
     'xorg-server',
     'xorg-xinit',
     'xf86-video-intel',
+    'xscreensaver',
     'xterm',
   ]
   package { $packages: }

@@ -110,7 +110,6 @@ $packages = [
   'vim',
   'xclip',
   'xdotool',
-  'xscreensaver',
   'xsel',
   'xorg-xprop',
 ]
