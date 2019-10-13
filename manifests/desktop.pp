@@ -64,6 +64,7 @@ $packages = [
   'aspell',
   'aspell-en',
   'aws-cli',
+  'base',
   'base-devel',
   'bind-tools',
   'chromium',
