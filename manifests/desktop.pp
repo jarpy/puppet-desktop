@@ -19,7 +19,6 @@ include tmux
 include virtualbox
 include vnc
 include xorg
-#include x11::session
 
 $me = $facts['user']
 
@@ -142,8 +141,8 @@ file { "/home/${me}/src": ensure => directory }
 file { "/home/${me}/bin": ensure => directory }
 
 # Elasticsearch demands this.
-sysctl { "vm.max_map_count":
-  ensure  => present,
-  value   => "262144",
-  persist => true,
-}
+#sysctl { "vm.max_map_count":
+#  ensure  => present,
+#  value   => "262144",
+#  persist => true,
+#}
