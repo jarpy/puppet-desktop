@@ -2,3 +2,4 @@ puppetlabs-release-*.deb
 **/#*
 **/.#*
 **/*~
+.vagrant
