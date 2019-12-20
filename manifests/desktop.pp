@@ -63,6 +63,7 @@ $rubygems = [
 $packages = [
   'aspell',
   'aspell-en',
+  'autocutsel',
   'aws-cli',
   'base',
   'base-devel',
