@@ -1,4 +1,4 @@
-class minikube(String $version='0.32.0') {
+class minikube(String $version='1.5.2') {
   $src = "https://github.com/kubernetes/${name}/releases/download/v${version}/${name}-linux-amd64"
   $dst = "/usr/local/bin/${name}-${version}"
   $symlink = "/usr/local/bin/${name}"
