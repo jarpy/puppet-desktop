@@ -73,6 +73,7 @@ $packages = [
   'clojure',
   'copyq',
   'efibootmgr',
+  'exa',
   'expect',
   'firefox',
   'freerdp',
