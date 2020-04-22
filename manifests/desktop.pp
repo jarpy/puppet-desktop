@@ -80,6 +80,7 @@ $packages = [
   'fd',
   'fzf',
   'gvim',
+  'hub',
   'jq',
   'lastpass-cli',
   'lsof',
