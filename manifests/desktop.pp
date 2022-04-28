@@ -61,17 +61,19 @@ $rubygems = [
 #}
 
 $packages = [
+  'alacrity',
   'aspell',
   'aspell-en',
   'autocutsel',
   'aws-cli',
+  'aws-vault',
   'base',
   'base-devel',
   'bat',
-  'bind-tools',
   'chromium',
   'clojure',
   'copyq',
+  'git-delta',
   'efibootmgr',
   'exa',
   'expect',
