@@ -6,7 +6,7 @@ class emacs {
   vcsrepo { "/home/${me}/.emacs.d":
     ensure   => present,
     provider => git,
-    source   => 'git@github.com:jarpy/prelude.git',
+    source   => 'git@github.com:jarpy/prelude',
     user     => $me,
     notify   => Exec['bootstrap emacs'],
   }
